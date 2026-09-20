@@ -1,0 +1,878 @@
+
+
+/* ==========================================
+   CONFIGURACIÓN GENERAL
+========================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+
+    font-family:
+        'Poppins',
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #c3d0f7 0%,
+            #d8d3f7 50%,
+            #b2c2f7 100%
+        );
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    position: relative;
+
+    padding: 20px;
+
+    color: #1a2b4c;
+}
+
+
+/* ==========================================
+   BOTÓN VOLVER
+========================================== */
+
+.volver-inicio {
+
+    position: absolute;
+
+    top: 20px;
+
+    left: 20px;
+
+    text-decoration: none;
+
+    color: #1c325e;
+
+    font-weight: 600;
+
+    background:
+        rgba(255, 255, 255, 0.75);
+
+    padding:
+        8px 16px;
+
+    border-radius:
+        20px;
+
+    box-shadow:
+        0 4px 10px
+        rgba(0, 0, 0, 0.05);
+
+    transition:
+        transform 0.2s,
+        background 0.2s;
+
+    z-index: 100;
+}
+
+
+.volver-inicio:hover {
+
+    transform:
+        translateY(-2px);
+
+    background:
+        rgba(255, 255, 255, 0.95);
+}
+
+
+/* ==========================================
+   CONTENEDOR PRINCIPAL
+========================================== */
+
+.contenedor {
+
+    width: 100%;
+
+    max-width: 950px;
+}
+
+
+.pagina-recuerdos {
+
+    background:
+        #ffffff;
+
+    border-radius:
+        24px;
+
+    padding:
+        35px;
+
+    box-shadow:
+        0 15px 35px
+        rgba(27, 43, 89, 0.15);
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    gap:
+        30px;
+
+    border:
+        4px solid #ffffff;
+}
+
+
+.contenido-recuerdos {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:
+        35px;
+
+    width:
+        100%;
+
+    align-items:
+        start;
+}
+
+
+/* ==========================================
+   TARJETAS
+========================================== */
+
+.tarjeta {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+}
+
+
+.tarjeta h2 {
+
+    font-family:
+        'Playfair Display',
+        serif;
+
+    font-style:
+        italic;
+
+    font-size:
+        1.8rem;
+
+    color:
+        #1a2c50;
+
+    margin-bottom:
+        20px;
+
+    text-align:
+        center;
+}
+
+
+/* ==========================================
+   CARTAS
+========================================== */
+
+.tarjeta.flores {
+
+    background:
+        #f0f4fd;
+
+    border-radius:
+        20px;
+
+    padding:
+        25px 20px;
+
+    box-shadow:
+        inset 0 0 15px
+        rgba(0, 0, 0, 0.02);
+}
+
+
+.florero.sobre-contenedor {
+
+    position:
+        relative;
+
+    width:
+        240px;
+
+    height:
+        330px;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+}
+
+
+.carta {
+
+    position:
+        absolute;
+
+    width:
+        110px;
+
+    height:
+        140px;
+
+    background:
+        #ffffff;
+
+    border-radius:
+        12px;
+
+    border:
+        2px solid #a8c2ee;
+
+    box-shadow:
+        0 6px 15px
+        rgba(0, 0, 0, 0.08);
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.3s
+        cubic-bezier(
+            0.175,
+            0.885,
+            0.32,
+            1.275
+        ),
+        box-shadow 0.3s;
+
+    z-index:
+        2;
+
+    padding:
+        10px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+}
+
+
+.carta-preview {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    gap:
+        8px;
+
+    text-align:
+        center;
+}
+
+
+.carta-preview span {
+
+    font-size:
+        1.8rem;
+}
+
+
+.carta-preview small {
+
+    font-size:
+        0.75rem;
+
+    font-weight:
+        600;
+
+    color:
+        #3b507d;
+}
+
+
+/* ==========================================
+   POSICIÓN DE LAS CARTAS
+========================================== */
+
+.carta-1 {
+
+    top:
+        30px;
+
+    left:
+        15px;
+
+    transform:
+        rotate(-12deg);
+}
+
+
+.carta-2 {
+
+    top:
+        10px;
+
+    left:
+        65px;
+
+    transform:
+        rotate(0deg);
+
+    z-index:
+        3;
+}
+
+
+.carta-3 {
+
+    top:
+        35px;
+
+    right:
+        15px;
+
+    transform:
+        rotate(14deg);
+}
+
+
+/* ==========================================
+   EFECTO HOVER DE LAS CARTAS
+========================================== */
+
+.carta-1:hover {
+
+    transform:
+        rotate(-12deg)
+        translateY(-20px)
+        scale(1.08);
+
+    box-shadow:
+        0 12px 25px
+        rgba(0, 0, 0, 0.15);
+
+    z-index:
+        15;
+}
+
+
+.carta-2:hover {
+
+    transform:
+        rotate(0deg)
+        translateY(-20px)
+        scale(1.08);
+
+    box-shadow:
+        0 12px 25px
+        rgba(0, 0, 0, 0.15);
+
+    z-index:
+        15;
+}
+
+
+.carta-3:hover {
+
+    transform:
+        rotate(14deg)
+        translateY(-20px)
+        scale(1.08);
+
+    box-shadow:
+        0 12px 25px
+        rgba(0, 0, 0, 0.15);
+
+    z-index:
+        15;
+}
+
+
+/* ==========================================
+   SOBRE
+========================================== */
+
+.sobre-base {
+
+    position:
+        absolute;
+
+    bottom:
+        0;
+
+    width:
+        210px;
+
+    height:
+        150px;
+
+    background:
+        #001a4d;
+
+    border-radius:
+        16px;
+
+    z-index:
+        5;
+
+    box-shadow:
+        0 10px 20px
+        rgba(0, 0, 0, 0.2);
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+}
+
+
+.sobre-solapa {
+
+    position:
+        absolute;
+
+    top:
+        0;
+
+    width:
+        0;
+
+    height:
+        0;
+
+    border-left:
+        105px solid transparent;
+
+    border-right:
+        105px solid transparent;
+
+    border-top:
+        65px solid #0a296b;
+}
+
+
+.sello-cera {
+
+    position:
+        absolute;
+
+    top:
+        45px;
+
+    width:
+        38px;
+
+    height:
+        38px;
+
+    background:
+        #a82c2c;
+
+    border-radius:
+        50%;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    color:
+        #ffffff;
+
+    font-size:
+        1rem;
+
+    box-shadow:
+        0 3px 8px
+        rgba(0, 0, 0, 0.3);
+
+    z-index:
+        8;
+}
+
+
+.florero-base {
+
+    position:
+        absolute;
+
+    bottom:
+        18px;
+
+    z-index:
+        8;
+}
+
+
+.florero-base span {
+
+    color:
+        #ffffff;
+
+    font-weight:
+        600;
+
+    font-size:
+        0.85rem;
+
+    letter-spacing:
+        1.5px;
+}
+
+
+/* ==========================================
+   TARJETA DEL VIDEO
+========================================== */
+
+.tarjeta.musica {
+
+    width:
+        100%;
+}
+
+
+.reproductor {
+
+    width:
+        100%;
+
+    background:
+        #8faae8;
+
+    border-radius:
+        16px;
+
+    padding:
+        16px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.08);
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+}
+
+
+/* ==========================================
+   VIDEO VERTICAL
+========================================== */
+
+.portada-cancion {
+
+    position:
+        relative;
+
+    width:
+        100%;
+
+    max-width:
+        330px;
+
+    aspect-ratio:
+        9 / 16;
+
+    border-radius:
+        12px;
+
+    overflow:
+        hidden;
+
+    background:
+        #000;
+}
+
+
+.portada-cancion video {
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    display:
+        block;
+
+    object-fit:
+        contain;
+
+    background:
+        #000;
+}
+
+
+/* ==========================================
+   MODAL
+========================================== */
+
+.modal-carta {
+
+    display:
+        none;
+
+    position:
+        fixed;
+
+    top:
+        0;
+
+    left:
+        0;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    background:
+        rgba(15, 25, 50, 0.6);
+
+    backdrop-filter:
+        blur(4px);
+
+    z-index:
+        200;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+}
+
+
+.modal-contenido {
+
+    background:
+        #ffffff;
+
+    padding:
+        30px;
+
+    border-radius:
+        20px;
+
+    max-width:
+        400px;
+
+    width:
+        90%;
+
+    position:
+        relative;
+
+    box-shadow:
+        0 15px 30px
+        rgba(0, 0, 0, 0.2);
+
+    text-align:
+        center;
+
+    animation:
+        popup 0.3s
+        cubic-bezier(
+            0.175,
+            0.885,
+            0.32,
+            1.275
+        );
+}
+
+
+/* ==========================================
+   ANIMACIÓN DEL MODAL
+========================================== */
+
+@keyframes popup {
+
+    0% {
+
+        transform:
+            scale(0.7);
+
+        opacity:
+            0;
+    }
+
+    100% {
+
+        transform:
+            scale(1);
+
+        opacity:
+            1;
+    }
+}
+
+
+.cerrar-modal {
+
+    position:
+        absolute;
+
+    top:
+        15px;
+
+    right:
+        20px;
+
+    font-size:
+        1.5rem;
+
+    cursor:
+        pointer;
+
+    color:
+        #888;
+}
+
+
+.modal-contenido h3 {
+
+    font-family:
+        'Playfair Display',
+        serif;
+
+    color:
+        #1a2c50;
+
+    margin-bottom:
+        15px;
+
+    font-size:
+        1.5rem;
+}
+
+
+.modal-contenido p {
+
+    color:
+        #4a5b7d;
+
+    line-height:
+        1.6;
+
+    font-size:
+        0.95rem;
+}
+
+
+/* ==========================================
+   TABLET / CELULAR
+========================================== */
+
+@media (max-width: 768px) {
+
+    .contenido-recuerdos {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .pagina-recuerdos {
+
+        padding:
+            25px 15px;
+    }
+
+
+    .portada-cancion {
+
+        max-width:
+            300px;
+    }
+
+}
+
+
+/* ==========================================
+   CELULARES PEQUEÑOS
+========================================== */
+
+@media (max-width: 480px) {
+
+    body {
+
+        padding:
+            15px;
+    }
+
+
+    .volver-inicio {
+
+        top:
+            10px;
+
+        left:
+            10px;
+
+        font-size:
+            0.85rem;
+    }
+
+
+    .tarjeta h2 {
+
+        font-size:
+            1.5rem;
+    }
+
+
+    .portada-cancion {
+
+        max-width:
+            260px;
+    }
+
+}
+

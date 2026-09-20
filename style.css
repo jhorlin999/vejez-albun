@@ -1,0 +1,1261 @@
+/* =====================================================
+   INTRODUCCIÓN - FLORES BRILLANTES 🌸
+   Fondo oscuro, pétalos rosados con luz y pasto verde.
+   ===================================================== */
+
+.flowers-intro {
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  /* Noche con un resplandor rosado al centro */
+  background:
+    radial-gradient(
+      circle at 50% 95%,
+      #2a0a1b 0%,
+      #14040d 45%,
+      #000000 100%
+    );
+
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: center;
+
+  z-index: 99999;
+
+  overflow: hidden;
+
+  /* La introducción desaparece después de 5 segundos */
+  animation: introDisappear 1s ease forwards;
+
+  animation-delay: 5s;
+}
+
+
+/* =====================================================
+   CONTENEDOR DE LAS FLORES
+   ===================================================== */
+
+.flowers {
+
+  position: relative;
+
+  width: 100%;
+  max-width: 620px;
+
+  height: 100%;
+
+}
+
+
+/* =====================================================
+   FLOR
+   Cada flor tiene su propia altura con la variable --h
+   ===================================================== */
+
+.flower {
+
+  position: absolute;
+
+  bottom: 40px;
+
+  transform-origin: bottom center;
+
+}
+
+
+.flower--1 {
+
+  --h: 210px;
+
+  left: 14%;
+
+  transform: rotate(-7deg) scale(0.85);
+
+}
+
+
+.flower--2 {
+
+  --h: 300px;
+
+  left: 45%;
+
+  transform: scale(1);
+
+}
+
+
+.flower--3 {
+
+  --h: 235px;
+
+  left: 72%;
+
+  transform: rotate(6deg) scale(0.9);
+
+}
+
+
+/* =====================================================
+   TALLO
+   ===================================================== */
+
+.flower_line {
+
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+
+  width: 9px;
+
+  height: var(--h);
+
+  background: linear-gradient(
+    to top,
+    #4a0c22,
+    #a32257 55%,
+    #e2669b
+  );
+
+  border-radius: 10px;
+
+  transform-origin: bottom center;
+
+  box-shadow:
+    0 0 12px rgba(226, 102, 155, 0.35);
+
+  /* El tallo crece desde el suelo */
+  animation:
+    growing-line 1.6s ease backwards;
+
+}
+
+
+.flower--1 .flower_line { animation-delay: 0.1s; }
+.flower--2 .flower_line { animation-delay: 0.4s; }
+.flower--3 .flower_line { animation-delay: 0.7s; }
+
+
+/* =====================================================
+   HOJAS DEL TALLO
+   ===================================================== */
+
+.flower_line_leaf {
+
+  position: absolute;
+
+  width: 80px;
+  height: 42px;
+
+  background: linear-gradient(
+    120deg,
+    #5d0f2c,
+    #b4306a
+  );
+
+  border-radius: 100% 0 100% 0;
+
+  box-shadow:
+    0 0 14px rgba(180, 48, 106, 0.35);
+
+  transform-origin: left center;
+
+  animation:
+    growing-leaf 1s ease backwards;
+
+}
+
+
+.flower_line_leaf--1 {
+
+  bottom: 20px;
+  left: 4px;
+
+  transform: rotate(-12deg);
+
+  animation-delay: 1.4s;
+
+}
+
+
+.flower_line_leaf--2 {
+
+  bottom: 62px;
+  left: 4px;
+
+  transform: rotate(-32deg) scale(0.85);
+
+  animation-delay: 1.6s;
+
+}
+
+
+.flower_line_leaf--3 {
+
+  bottom: 46px;
+  left: 4px;
+
+  transform: rotate(160deg) scale(0.8);
+
+  animation-delay: 1.8s;
+
+}
+
+
+/* =====================================================
+   CABEZA DE LA FLOR
+   ===================================================== */
+
+.flower_head {
+
+  position: absolute;
+
+  bottom: var(--h);
+
+  left: 4px;
+
+  width: 0;
+  height: 0;
+
+  /* Primero abre y después se mece suavemente */
+  animation:
+    blooming-flower 1.8s ease backwards,
+    moving-flower 5s ease-in-out infinite;
+
+}
+
+
+.flower--1 .flower_head {
+  animation-delay: 1.3s, 3s;
+}
+
+.flower--2 .flower_head {
+  animation-delay: 1.6s, 3.3s;
+}
+
+.flower--3 .flower_head {
+  animation-delay: 1.9s, 3.6s;
+}
+
+
+/* =====================================================
+   PÉTALOS ROSADOS
+   ===================================================== */
+
+.flower_leaf {
+
+  position: absolute;
+
+  bottom: -6px;
+  left: 0;
+
+  width: 46px;
+  height: 84px;
+
+  /* Forma orgánica de pétalo */
+  border-radius:
+    51% 49% 47% 53% /
+    44% 45% 55% 69%;
+
+  background: linear-gradient(
+    to top,
+    #c2185b,
+    #ff8fc0 65%,
+    #ffd2e6
+  );
+
+  box-shadow:
+    inset 0 0 18px rgba(255, 255, 255, 0.45),
+    0 0 22px rgba(255, 105, 160, 0.4);
+
+  transform-origin: bottom center;
+
+}
+
+
+.flower_leaf--1 {
+  transform: translateX(-50%) rotate(-72deg);
+}
+
+.flower_leaf--2 {
+  transform: translateX(-50%) rotate(-36deg);
+}
+
+.flower_leaf--3 {
+  transform: translateX(-50%) rotate(0deg);
+}
+
+.flower_leaf--4 {
+  transform: translateX(-50%) rotate(36deg);
+}
+
+.flower_leaf--5 {
+  transform: translateX(-50%) rotate(72deg);
+}
+
+
+/* =====================================================
+   CENTRO BRILLANTE DE LA FLOR
+   ===================================================== */
+
+.flower_core {
+
+  position: absolute;
+
+  bottom: -4px;
+  left: 0;
+
+  width: 34px;
+  height: 20px;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      #ffffff 0 30%,
+      #ffe9a8 45%,
+      #f6c445 100%
+    );
+
+  box-shadow:
+    0 0 18px rgba(255, 220, 130, 0.9),
+    0 0 40px rgba(255, 190, 90, 0.5);
+
+  z-index: 2;
+
+  animation:
+    core-glow 2.4s ease-in-out infinite;
+
+}
+
+
+/* =====================================================
+   PASTO DEL SUELO
+   ===================================================== */
+
+.grass {
+
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 170px;
+
+  pointer-events: none;
+
+}
+
+
+.grass span {
+
+  position: absolute;
+
+  bottom: 0;
+
+  width: 14px;
+  height: 120px;
+
+  background: linear-gradient(
+    to top,
+    #06300f,
+    #2f9b3f 60%,
+    #6be07a
+  );
+
+  /* Convierte el rectángulo en una hoja puntiaguda */
+  clip-path:
+    polygon(50% 0%, 100% 100%, 0% 100%);
+
+  transform-origin: bottom center;
+
+  animation:
+    grass-move 4s ease-in-out infinite;
+
+}
+
+
+.grass span:nth-child(1)  { left: 2%;  height: 95px;  transform: rotate(-14deg); animation-delay: 0s; }
+.grass span:nth-child(2)  { left: 8%;  height: 130px; transform: rotate(6deg);   animation-delay: .3s; }
+.grass span:nth-child(3)  { left: 14%; height: 80px;  transform: rotate(-8deg);  animation-delay: .6s; }
+.grass span:nth-child(4)  { left: 20%; height: 145px; transform: rotate(10deg);  animation-delay: .2s; }
+.grass span:nth-child(5)  { left: 27%; height: 100px; transform: rotate(-12deg); animation-delay: .9s; }
+.grass span:nth-child(6)  { left: 33%; height: 120px; transform: rotate(4deg);   animation-delay: .5s; }
+.grass span:nth-child(7)  { left: 40%; height: 88px;  transform: rotate(-6deg);  animation-delay: 1.1s; }
+.grass span:nth-child(8)  { left: 46%; height: 150px; transform: rotate(9deg);   animation-delay: .1s; }
+.grass span:nth-child(9)  { left: 53%; height: 105px; transform: rotate(-10deg); animation-delay: .7s; }
+.grass span:nth-child(10) { left: 60%; height: 125px; transform: rotate(5deg);   animation-delay: 1.3s; }
+.grass span:nth-child(11) { left: 66%; height: 85px;  transform: rotate(-9deg);  animation-delay: .4s; }
+.grass span:nth-child(12) { left: 73%; height: 140px; transform: rotate(8deg);   animation-delay: 1s; }
+.grass span:nth-child(13) { left: 80%; height: 98px;  transform: rotate(-13deg); animation-delay: .8s; }
+.grass span:nth-child(14) { left: 86%; height: 118px; transform: rotate(7deg);   animation-delay: 1.4s; }
+.grass span:nth-child(15) { left: 92%; height: 90px;  transform: rotate(-5deg);  animation-delay: .2s; }
+.grass span:nth-child(16) { left: 97%; height: 132px; transform: rotate(11deg);  animation-delay: 1.2s; }
+
+
+/* =====================================================
+   LUCES QUE FLOTAN (PARTÍCULAS)
+   ===================================================== */
+
+.motes {
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+}
+
+
+.motes span {
+
+  position: absolute;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #fff3b0;
+
+  box-shadow:
+    0 0 10px rgba(255, 235, 150, 0.9);
+
+  opacity: 0;
+
+  animation:
+    floating-mote 6s linear infinite;
+
+}
+
+
+.motes span:nth-child(1)  { left: 10%; bottom: 18%; animation-delay: 0s; }
+.motes span:nth-child(2)  { left: 22%; bottom: 30%; animation-delay: .8s; }
+.motes span:nth-child(3)  { left: 34%; bottom: 12%; animation-delay: 1.6s; }
+.motes span:nth-child(4)  { left: 44%; bottom: 40%; animation-delay: 2.4s; }
+.motes span:nth-child(5)  { left: 55%; bottom: 22%; animation-delay: 3.2s; }
+.motes span:nth-child(6)  { left: 65%; bottom: 35%; animation-delay: 1.1s; }
+.motes span:nth-child(7)  { left: 76%; bottom: 16%; animation-delay: 2s; }
+.motes span:nth-child(8)  { left: 86%; bottom: 28%; animation-delay: 2.8s; }
+.motes span:nth-child(9)  { left: 16%; bottom: 45%; animation-delay: 3.6s; }
+.motes span:nth-child(10) { left: 50%; bottom: 55%; animation-delay: 1.4s; }
+.motes span:nth-child(11) { left: 70%; bottom: 50%; animation-delay: 2.2s; }
+.motes span:nth-child(12) { left: 30%; bottom: 60%; animation-delay: 4s; }
+
+
+/* =====================================================
+   ANIMACIONES DE LA INTRODUCCIÓN
+   ===================================================== */
+
+@keyframes growing-line {
+
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+
+  100% {
+    height: var(--h);
+    opacity: 1;
+  }
+
+}
+
+
+@keyframes growing-leaf {
+
+  0% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
+  }
+
+}
+
+
+@keyframes blooming-flower {
+
+  0% {
+    transform: scale(0) rotate(-40deg);
+    opacity: 0;
+  }
+
+  70% {
+    transform: scale(1.15) rotate(6deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+
+}
+
+
+@keyframes moving-flower {
+
+  0%, 100% {
+    rotate: 0deg;
+  }
+
+  50% {
+    rotate: 4deg;
+  }
+
+}
+
+
+@keyframes core-glow {
+
+  0%, 100% {
+    box-shadow:
+      0 0 18px rgba(255, 220, 130, 0.9),
+      0 0 40px rgba(255, 190, 90, 0.5);
+  }
+
+  50% {
+    box-shadow:
+      0 0 26px rgba(255, 235, 170, 1),
+      0 0 60px rgba(255, 200, 110, 0.7);
+  }
+
+}
+
+
+@keyframes grass-move {
+
+  0%, 100% {
+    scale: 1 1;
+  }
+
+  50% {
+    scale: 1.02 1.04;
+  }
+
+}
+
+
+@keyframes floating-mote {
+
+  0% {
+    transform: translate(0, 0) scale(0.6);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translate(30px, -180px) scale(1);
+    opacity: 0;
+  }
+
+}
+
+
+/* =====================================================
+   DESAPARECER INTRO
+   ===================================================== */
+
+@keyframes introDisappear {
+
+  0% {
+
+    opacity: 1;
+
+  }
+
+  100% {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+  }
+
+}
+
+/* =====================================================
+   RESET Y ESTILOS GENERALES
+   =====================================================
+
+   Eliminamos márgenes y espacios predeterminados
+   del navegador para controlar mejor el diseño.
+*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* =====================================================
+   CUERPO DE LA PÁGINA
+   ===================================================== */
+
+body {
+
+  /* Fuente principal */
+  font-family: 'Montserrat', sans-serif;
+
+  /* Color de fondo romántico muy claro */
+  background-color: #fdf5f5;
+
+  /* Color principal del texto */
+  color: #333;
+
+  /* Evita desplazamiento horizontal accidental */
+  overflow-x: hidden;
+}
+
+
+/* =====================================================
+   REPRODUCTOR FLOTANTE DE MÚSICA
+   ===================================================== */
+
+.music-player {
+
+  /* Hace que permanezca fijo aunque bajemos la página */
+  position: fixed;
+
+  /* Distancia desde abajo */
+  bottom: 20px;
+
+  /* Distancia desde la derecha */
+  right: 20px;
+
+  /* Hace que aparezca encima de otros elementos */
+  z-index: 1000;
+}
+
+
+/* Botón del reproductor */
+.music-player button {
+
+  background: #d63384;
+
+  color: white;
+
+  border: none;
+
+  padding: 12px 20px;
+
+  border-radius: 30px;
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+  box-shadow: 0 4px 12px rgba(214, 51, 132, 0.4);
+
+  /* Suaviza los efectos cuando pasamos el mouse */
+  transition:
+    transform 0.2s,
+    background 0.2s;
+}
+
+
+/* Efecto cuando colocamos el mouse encima */
+.music-player button:hover {
+
+  background: #b8256f;
+
+  transform: scale(1.05);
+}
+
+
+/* =====================================================
+   PORTADA / HERO
+   ===================================================== */
+
+.hero {
+
+  /* La portada ocupa el 80% de la altura visible */
+  height: 80vh;
+
+  /* Imagen de fondo */
+  background-image:
+     url("imagenes/portada.jpeg");
+
+  /* Centra la imagen */
+  background-position: center;
+
+  /* Hace que cubra toda la portada */
+  background-size: cover;
+
+  /* Evita que la imagen se repita */
+  background-repeat: no-repeat;
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+}
+
+
+/* Capa oscura encima de la imagen */
+.hero-overlay {
+
+  background: rgba(0, 0, 0, 0.45);
+
+  width: 100%;
+
+  height: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  color: white;
+
+  padding: 20px;
+}
+
+
+/* Título principal */
+.hero h1 {
+
+  font-family: 'Caveat', cursive;
+
+  font-size: 4em;
+
+  margin-bottom: 10px;
+
+  text-shadow:
+    2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Texto debajo del título */
+.hero p {
+
+  font-size: 1.2em;
+
+  margin-bottom: 20px;
+}
+
+
+/* Contador de días juntos */
+.counter {
+
+  background:
+    rgba(255, 255, 255, 0.2);
+
+  padding: 10px 20px;
+
+  border-radius: 20px;
+
+  backdrop-filter: blur(5px);
+
+  font-size: 1em;
+}
+
+
+/* =====================================================
+   SECCIONES GENERALES
+   ===================================================== */
+
+.section {
+
+  /* Espacio arriba y abajo */
+  padding: 60px 20px;
+
+  /* Ancho máximo */
+  max-width: 1000px;
+
+  /* Centra cada sección */
+  margin: 0 auto;
+}
+
+
+/* Títulos de las secciones */
+.section h2 {
+
+  text-align: center;
+
+  font-family: 'Caveat', cursive;
+
+  font-size: 3em;
+
+  color: #d63384;
+
+  margin-bottom: 40px;
+}
+
+
+/* =====================================================
+   1. LÍNEA DEL TIEMPO
+   ===================================================== */
+
+.timeline {
+
+  position: relative;
+
+  max-width: 800px;
+
+  margin: 0 auto;
+}
+
+
+/* Línea vertical del centro */
+.timeline::after {
+
+  content: '';
+
+  position: absolute;
+
+  width: 4px;
+
+  background-color: #f1b0cc;
+
+  top: 0;
+
+  bottom: 0;
+
+  left: 50%;
+
+  margin-left: -2px;
+}
+
+
+/* Cada elemento de la línea del tiempo */
+.timeline-item {
+
+  padding: 10px 40px;
+
+  position: relative;
+
+  width: 50%;
+}
+
+
+/* Elementos ubicados a la izquierda */
+.timeline-item.left {
+
+  left: 0;
+
+  text-align: right;
+}
+
+
+/* Elementos ubicados a la derecha */
+.timeline-item.right {
+
+  left: 50%;
+
+  text-align: left;
+}
+
+
+/* Caja blanca de cada acontecimiento */
+.timeline-item .content {
+
+  padding: 20px;
+
+  background: white;
+
+  border-radius: 8px;
+
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+
+/* =====================================================
+   BOTÓN PARA ABRIR CADA PROYECTO
+   ===================================================== */
+
+.btn-proyecto {
+
+  display: inline-block;
+
+  margin-top: 15px;
+
+  background: #d63384;
+
+  color: white;
+
+  text-decoration: none;
+
+  padding: 10px 18px;
+
+  border-radius: 15px;
+
+  font-size: 0.9em;
+
+  transition:
+    background 0.3s,
+    transform 0.3s;
+}
+
+
+.btn-proyecto:hover {
+
+  background: #b8256f;
+
+  transform: scale(1.05);
+}
+
+
+/* =====================================================
+   2. GALERÍA POLAROID
+   ===================================================== */
+
+.polaroid-grid {
+
+  /* Coloca las fotos horizontalmente */
+  display: flex;
+
+  /* Permite que bajen de línea si no entran */
+  flex-wrap: wrap;
+
+  /* Las centra */
+  justify-content: center;
+
+  /* Separación entre fotos */
+  gap: 25px;
+}
+
+
+/* Cada fotografía */
+.polaroid {
+
+  background: white;
+
+  padding: 15px 15px 25px 15px;
+
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.1);
+
+  width: 220px;
+
+  text-align: center;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* Inclina las fotografías impares hacia la izquierda */
+.polaroid:nth-child(odd) {
+
+  transform: rotate(-3deg);
+}
+
+
+/* Inclina las fotografías pares hacia la derecha */
+.polaroid:nth-child(even) {
+
+  transform: rotate(3deg);
+}
+
+
+/* Efecto al colocar el mouse */
+.polaroid:hover {
+
+  transform:
+    scale(1.1)
+    rotate(0deg);
+
+  z-index: 10;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Imágenes dentro de la polaroid */
+.polaroid img {
+
+  width: 100%;
+
+  height: 200px;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+
+/* Texto debajo de cada fotografía */
+.polaroid .caption {
+
+  font-family: 'Caveat', cursive;
+
+  font-size: 1.4em;
+
+  margin-top: 10px;
+
+  color: #444;
+}
+
+
+/* =====================================================
+   3. LIBRO DE RECUERDOS 3D
+   ===================================================== */
+
+.book-container {
+
+  display: flex;
+
+  justify-content: center;
+
+  /* Genera sensación de profundidad */
+  perspective: 1000px;
+}
+
+
+/* Libro completo */
+.book {
+
+  width: 280px;
+
+  height: 380px;
+
+  position: relative;
+
+  transform-style: preserve-3d;
+
+  transition: transform 1s;
+}
+
+
+/* Diseño general de las páginas */
+.page {
+
+  position: absolute;
+
+  width: 100%;
+
+  height: 100%;
+
+  background: #fff8f8;
+
+  border:
+    1px solid #e0c8c8;
+
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.1);
+
+  border-radius: 5px;
+
+  padding: 30px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  text-align: center;
+
+  /* Oculta la parte trasera de cada página */
+  backface-visibility: hidden;
+}
+
+
+/* =====================================================
+   PORTADA DEL LIBRO
+   ===================================================== */
+
+.page.cover {
+
+    background-image:
+        url("imagenes/15.jpeg");
+
+    background-size:
+        cover;
+
+    background-position:
+        center;
+
+    background-repeat:
+        no-repeat;
+
+    color:
+        white;
+
+    cursor:
+        pointer;
+
+    z-index:
+        3;
+
+}
+
+
+/* =====================================================
+   SEGUNDA PÁGINA
+   ===================================================== */
+
+.page.inner {
+
+  background: #fff8f8;
+
+  transform: rotateY(180deg);
+
+  z-index: 2;
+}
+
+
+/* =====================================================
+   ÚLTIMA PÁGINA
+   ===================================================== */
+
+.page.back {
+
+  background: #fff0f5;
+
+  transform: rotateY(360deg);
+
+  z-index: 1;
+}
+
+
+/* Botones internos del libro */
+.page button {
+
+  margin-top: 20px;
+
+  background: #d63384;
+
+  color: white;
+
+  border: none;
+
+  padding: 10px 18px;
+
+  border-radius: 15px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s,
+    transform 0.3s;
+}
+
+
+/* Efecto al colocar el mouse encima */
+.page button:hover {
+
+  background: #b8256f;
+
+  transform: scale(1.05);
+}
+
+
+/* =====================================================
+   DISEÑO PARA CELULARES
+   ===================================================== */
+
+@media (max-width: 768px) {
+
+  /* Reduce el título principal */
+  .hero h1 {
+
+    font-size: 3em;
+  }
+
+
+  /* Reduce títulos de secciones */
+  .section h2 {
+
+    font-size: 2.4em;
+  }
+
+
+  /* Mueve la línea del tiempo hacia la izquierda */
+  .timeline::after {
+
+    left: 31px;
+  }
+
+
+  /* Los elementos ocuparán todo el ancho */
+  .timeline-item {
+
+    width: 100%;
+
+    padding-left: 70px;
+
+    padding-right: 25px;
+  }
+
+
+  /* Todos quedan alineados hacia la izquierda */
+  .timeline-item.left,
+  .timeline-item.right {
+
+    left: 0;
+
+    text-align: left;
+  }
+
+
+  /* Reduce ligeramente el libro */
+  .book {
+
+    width: 250px;
+
+    height: 350px;
+  }
+
+
+  /* Botón de música más pequeño */
+  .music-player {
+
+    bottom: 15px;
+
+    right: 15px;
+  }
+
+
+  .music-player button {
+
+    padding: 10px 15px;
+
+    font-size: 12px;
+  }
+
+
+  /* Flores de la intro más pequeñas en celular */
+  .flower--1 { left: 8%;  transform: rotate(-7deg) scale(0.6); }
+
+  .flower--2 { left: 42%; transform: scale(0.72); }
+
+  .flower--3 { left: 72%; transform: rotate(6deg) scale(0.65); }
+
+}

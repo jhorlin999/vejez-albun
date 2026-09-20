@@ -1,0 +1,691 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    overflow: hidden;
+    background: #02040b;
+    font-family: Arial, sans-serif;
+}
+
+
+/* =====================================
+   ESCENA PRINCIPAL
+===================================== */
+
+.galaxia {
+
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #192b4b 0%,
+            #0b152b 35%,
+            #030710 75%,
+            #010207 100%
+        );
+}
+
+
+/* =====================================
+   ESTRELLAS
+===================================== */
+
+.estrella {
+
+    position: absolute;
+
+    width: 3px;
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow:
+        0 0 6px white,
+        0 0 12px rgba(255,255,255,.7);
+
+    animation: parpadear 2s ease-in-out infinite;
+}
+
+
+@keyframes parpadear {
+
+    0%,
+    100% {
+        opacity: .2;
+        transform: scale(.7);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.4);
+    }
+}
+
+
+/* =====================================
+   LUNA
+===================================== */
+
+.luna {
+
+    position: absolute;
+
+    width: 85px;
+    height: 85px;
+
+    top: 10%;
+    right: 12%;
+
+    border-radius: 50%;
+
+    background: #fff5bd;
+
+    box-shadow:
+        0 0 20px #fff3a0,
+        0 0 50px rgba(255,235,130,.35);
+
+    animation: lunaMovimiento 5s ease-in-out infinite;
+}
+
+
+@keyframes lunaMovimiento {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* =====================================
+   BRILLOS
+===================================== */
+
+.brillo {
+
+    position: absolute;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow:
+        0 0 8px white,
+        0 0 15px #ffe88a;
+
+    animation: brilloMovimiento 3s ease-in-out infinite;
+}
+
+
+@keyframes brilloMovimiento {
+
+    0%,
+    100% {
+
+        opacity: 0;
+
+        transform:
+            scale(.5)
+            translateY(10px);
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.5)
+            translateY(-10px);
+    }
+}
+
+
+/* =====================================
+   GIRASOLES
+===================================== */
+
+.girasol {
+
+    position: absolute;
+
+    bottom: 7%;
+
+    width: 180px;
+    height: 410px;
+
+    transform-origin: bottom center;
+
+    opacity: 0;
+
+    animation:
+        crecer 2.5s cubic-bezier(.17,.67,.32,1.3) forwards,
+        balanceo 4s ease-in-out infinite 3s;
+}
+
+
+/* Girasol izquierdo */
+
+.girasol1 {
+
+    left: 18%;
+
+    animation-delay:
+        .4s,
+        3s;
+}
+
+
+/* Girasol central */
+
+.girasol2 {
+
+    left: 43%;
+
+    transform: scale(1.15);
+
+    animation-delay:
+        1s,
+        3.5s;
+}
+
+
+/* Girasol derecho */
+
+.girasol3 {
+
+    right: 18%;
+
+    transform: scale(.85);
+
+    animation-delay:
+        1.5s,
+        4s;
+}
+
+
+/* =====================================
+   CRECIMIENTO
+===================================== */
+
+@keyframes crecer {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            scaleY(0)
+            translateY(100px);
+    }
+
+    70% {
+
+        opacity: 1;
+
+        transform:
+            scaleY(1.05)
+            translateY(0);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            scaleY(1)
+            translateY(0);
+    }
+}
+
+
+/* =====================================
+   BALANCEO
+===================================== */
+
+@keyframes balanceo {
+
+    0%,
+    100% {
+        rotate: -2deg;
+    }
+
+    50% {
+        rotate: 2deg;
+    }
+}
+
+
+/* =====================================
+   TALLO
+===================================== */
+
+.tallo {
+
+    position: absolute;
+
+    bottom: 0;
+    left: 50%;
+
+    width: 12px;
+    height: 315px;
+
+    transform: translateX(-50%);
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #21461d,
+            #4d8b2d,
+            #23451d
+        );
+
+    box-shadow:
+        0 0 8px rgba(80,160,60,.3);
+}
+
+
+/* =====================================
+   HOJAS
+===================================== */
+
+.hoja {
+
+    position: absolute;
+
+    width: 100px;
+    height: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #58a532,
+            #1b501b
+        );
+
+    border-radius:
+        100%
+        0
+        100%
+        0;
+}
+
+
+.hoja-izquierda {
+
+    left: 10px;
+    bottom: 105px;
+
+    transform: rotate(-30deg);
+}
+
+
+.hoja-derecha {
+
+    right: 10px;
+    bottom: 175px;
+
+    transform: rotate(150deg);
+}
+
+
+/* =====================================
+   FLOR
+===================================== */
+
+.flor {
+
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+
+    width: 145px;
+    height: 145px;
+
+    transform:
+        translateX(-50%)
+        scale(0);
+
+    animation:
+        abrirFlor 1.8s ease-out forwards;
+
+    animation-delay: 2s;
+}
+
+
+@keyframes abrirFlor {
+
+    0% {
+
+        transform:
+            translateX(-50%)
+            scale(0)
+            rotate(-20deg);
+    }
+
+    70% {
+
+        transform:
+            translateX(-50%)
+            scale(1.1)
+            rotate(5deg);
+    }
+
+    100% {
+
+        transform:
+            translateX(-50%)
+            scale(1)
+            rotate(0);
+    }
+}
+
+
+/* =====================================
+   PÉTALOS
+===================================== */
+
+.petalo {
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 55px;
+    height: 85px;
+
+    transform-origin: 50% 100%;
+
+    border-radius:
+        50%
+        50%
+        45%
+        45%;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffe45a,
+            #f5ad00
+        );
+
+    box-shadow:
+        0 0 10px rgba(255,193,7,.4);
+}
+
+
+/* =====================================
+   POSICIÓN DE PÉTALOS
+===================================== */
+
+.petalo1 {
+    transform:
+        translate(-50%, -100%)
+        rotate(0deg);
+}
+
+.petalo2 {
+    transform:
+        translate(-50%, -100%)
+        rotate(45deg);
+}
+
+.petalo3 {
+    transform:
+        translate(-50%, -100%)
+        rotate(90deg);
+}
+
+.petalo4 {
+    transform:
+        translate(-50%, -100%)
+        rotate(135deg);
+}
+
+.petalo5 {
+    transform:
+        translate(-50%, -100%)
+        rotate(180deg);
+}
+
+.petalo6 {
+    transform:
+        translate(-50%, -100%)
+        rotate(225deg);
+}
+
+.petalo7 {
+    transform:
+        translate(-50%, -100%)
+        rotate(270deg);
+}
+
+.petalo8 {
+    transform:
+        translate(-50%, -100%)
+        rotate(315deg);
+}
+
+
+/* =====================================
+   CENTRO DEL GIRASOL
+===================================== */
+
+.centro {
+
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    width: 55px;
+    height: 55px;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #85501b 0%,
+            #4e2b0c 60%,
+            #251506 100%
+        );
+
+    box-shadow:
+        0 0 10px rgba(0,0,0,.7);
+}
+
+
+/* =====================================
+   PASTO
+===================================== */
+
+.pasto {
+
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 17%;
+
+    background:
+        linear-gradient(
+            to top,
+            #061305,
+            #0b2309,
+            transparent
+        );
+}
+
+
+.pasto::before {
+
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 75px;
+
+    background:
+        repeating-linear-gradient(
+            100deg,
+            transparent 0px,
+            transparent 12px,
+            #183d15 13px,
+            #183d15 15px
+        );
+
+    opacity: .8;
+}
+
+
+/* =====================================
+   MENSAJE
+===================================== */
+
+.mensaje {
+
+    position: absolute;
+
+    top: 9%;
+    left: 50%;
+
+    transform:
+        translateX(-50%)
+        translateY(20px);
+
+    text-align: center;
+
+    color: white;
+
+    opacity: 0;
+
+    animation:
+        aparecerMensaje 2s ease forwards;
+
+    animation-delay: 4s;
+}
+
+
+.emoji {
+
+    font-size: 45px;
+
+    filter:
+        drop-shadow(
+            0 0 10px #ffd83d
+        );
+
+    animation:
+        latido 2s ease-in-out infinite;
+}
+
+
+.texto {
+
+    margin-top: 5px;
+
+    font-size: 20px;
+
+    letter-spacing: 4px;
+
+    text-shadow:
+        0 0 10px white;
+}
+
+
+@keyframes aparecerMensaje {
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateX(-50%)
+            translateY(0);
+    }
+}
+
+
+@keyframes latido {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+
+/* =====================================
+   CELULAR
+===================================== */
+
+@media (max-width: 700px) {
+
+    .luna {
+
+        width: 60px;
+        height: 60px;
+    }
+
+    .girasol {
+
+        transform: scale(.7);
+    }
+
+    .girasol1 {
+        left: -5%;
+    }
+
+    .girasol2 {
+        left: 35%;
+    }
+
+    .girasol3 {
+        right: -5%;
+    }
+
+    .mensaje {
+        top: 15%;
+    }
+}

@@ -1,0 +1,200 @@
+* {
+    user-select: none;
+    -webkit-user-select: none;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #030108;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+}
+
+/* Canvas Base */
+#galaxia {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+}
+
+/* Lluvia de fotos Container */
+.lluvia-contenedor {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Polaroid Photo Card Styling */
+.foto-card {
+    position: absolute;
+    pointer-events: auto;
+    cursor: pointer;
+    animation: caerFotos linear infinite;
+    will-change: transform, top, opacity;
+    transition: filter 0.3s ease;
+}
+
+.marco-polaroid {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 10px 10px 14px 10px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 215, 0, 0.2);
+    width: 135px;
+    text-align: center;
+    border: 1px solid rgba(255, 230, 0, 0.4);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+.marco-polaroid img {
+    width: 100%;
+    height: 125px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    background-color: #1a162b;
+    transition: transform 0.4s ease;
+}
+
+.nota {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.25rem;
+    color: #162447;
+    margin-top: 8px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: color 0.3s ease;
+}
+
+/* Animaciones Hover Mejoradas */
+.foto-card:hover {
+    animation-play-state: paused !important;
+    z-index: 100 !important;
+}
+
+.foto-card:hover .marco-polaroid {
+    transform: scale(1.32) rotate(0deg) translateY(-10px);
+    border-color: rgba(255, 230, 0, 1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 35px rgba(251, 191, 36, 0.85);
+    background: #ffffff;
+}
+
+.foto-card:hover .marco-polaroid img {
+    transform: scale(1.03);
+}
+
+.foto-card:hover .nota {
+    color: #d97706;
+}
+
+/* Keyframes para la caída continua de las Polaroids con oscilaciones suaves */
+@keyframes caerFotos {
+    0% {
+        top: -220px;
+        opacity: 0;
+        transform: rotate(-10deg) translateX(0px);
+    }
+    8% {
+        opacity: 1;
+    }
+    50% {
+        transform: rotate(10deg) translateX(25px);
+    }
+    92% {
+        opacity: 1;
+    }
+    100% {
+        top: 108vh;
+        opacity: 0;
+        transform: rotate(-8deg) translateX(-20px);
+    }
+}
+
+/* Tiempos y Posiciones Horizontales Variadas */
+.card--1  { left: 4%;  animation-duration: 15s; animation-delay: 0s; }
+.card--2  { left: 19%; animation-duration: 18s; animation-delay: 2.8s; }
+.card--3  { left: 34%; animation-duration: 16s; animation-delay: 1s; }
+.card--4  { left: 49%; animation-duration: 19s; animation-delay: 4.2s; }
+.card--5  { left: 64%; animation-duration: 14s; animation-delay: 0.4s; }
+.card--6  { left: 79%; animation-duration: 17s; animation-delay: 5s; }
+
+.card--7  { left: 11%; animation-duration: 16s; animation-delay: 7.5s; }
+.card--8  { left: 26%; animation-duration: 14s; animation-delay: 9.5s; }
+.card--9  { left: 41%; animation-duration: 20s; animation-delay: 6.5s; }
+.card--10 { left: 56%; animation-duration: 15s; animation-delay: 8.5s; }
+.card--11 { left: 71%; animation-duration: 17s; animation-delay: 11s; }
+.card--12 { left: 86%; animation-duration: 13s; animation-delay: 2s; }
+
+/* Modal Preview Animation */
+@keyframes zoomModal {
+    0% { 
+        transform: scale(0.5) translateY(50px) rotate(-5deg); 
+        opacity: 0; 
+        filter: blur(10px);
+    }
+    100% { 
+        transform: scale(1) translateY(0) rotate(0deg); 
+        opacity: 1; 
+        filter: blur(0);
+    }
+}
+
+.modal-animacion {
+    animation: zoomModal 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Animación de Latido para el Botón de Like */
+@keyframes latido {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+.anim-latido {
+    animation: latido 0.6s ease infinite;
+}
+
+/* Partículas flotantes de Clic */
+.particula-clic {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    font-size: 1.5rem;
+    animation: flotarParticula 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes flotarParticula {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.6) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--tx), var(--ty)) scale(1.5) rotate(var(--rot));
+    }
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+    .marco-polaroid {
+        width: 105px;
+        padding: 6px 6px 10px 6px;
+    }
+    .marco-polaroid img {
+        height: 95px;
+    }
+    .nota {
+        font-size: 0.95rem;
+    }
+}

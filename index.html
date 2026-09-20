@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <!-- =====================================================
+       CONFIGURACIÓN GENERAL
+       ===================================================== -->
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Nuestra Historia de Amor ❤️</title>
+
+  <!-- Conecta el HTML con CSS -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+
+  <!-- =====================================================
+       REPRODUCTOR DE MÚSICA
+       ===================================================== -->
+
+  <div class="music-player">
+
+    <button id="musicToggle">
+      🎵 CANCION
+    </button>
+
+    <audio id="bgMusic" loop>
+
+      <source
+        src="musica/canserbero.mp3"
+        type="audio/mpeg">
+
+      Tu navegador no soporta reproducción de audio.
+
+    </audio>
+
+  </div>
+
+
+  <!-- =====================================================
+       PORTADA PRINCIPAL / HERO
+       ===================================================== -->
+
+  <header class="hero">
+
+    <div class="hero-overlay">
+
+      <h1>Nuestra Historia</h1>
+
+      <p>
+        LA AMOOOOO MI VEJEZ
+      </p>
+
+      <div class="counter" id="counter">
+        Llevamos juntos...
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =====================================================
+       CONTENIDO PRINCIPAL
+       ===================================================== -->
+
+  <main>
+
+
+    <!-- =====================================================
+         1. LÍNEA DEL TIEMPO
+         ===================================================== -->
+
+    <section class="section timeline-section">
+
+      <h2>PARA USTED MI REYNA</h2>
+
+      <div class="timeline">
+
+
+        <!-- PRIMER ACONTECIMIENTO -->
+
+        <div class="timeline-item left">
+
+          <div class="content">
+
+            <h3>DETALLITO</h3>
+
+            <p>
+              Amar no es mirarnos el uno al otro, es mirar juntos en la misma dirección
+            </p>
+
+            <a class="btn-proyecto" href="proyecto1.html">
+              Ver
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- SEGUNDO ACONTECIMIENTO -->
+
+        <div class="timeline-item right">
+
+          <div class="content">
+
+            <h3>RECUERDITO</h3>
+
+            <p>
+              Contigo descubrí que el amor verdadero no es el que te quita el aliento, sino el que te permite respirar tranquila por primera vez,
+            </p>
+
+            <a class="btn-proyecto" href="proyecto2.html">
+              Ver 
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- TERCER ACONTECIMIENTO -->
+
+        <div class="timeline-item left">
+
+          <div class="content">
+
+            <h3>PALABRAS PARA USTED.</h3>
+
+            <p>
+              Seguimos creciendo juntos mi niña.
+            </p>
+
+            <a class="btn-proyecto" href="proyecto3.html">
+              Ver 
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         2. GALERÍA DE FOTOS
+         ===================================================== -->
+
+    <section class="section polaroid-section">
+
+      <h2> ALGUNOS DE LOS MAS IMPORTANTES</h2>
+
+      <div class="polaroid-grid">
+
+
+        <!-- FOTO 1 -->
+
+        <div class="polaroid">
+
+          <img
+            src="imagenes/uno.jpeg"
+            alt="Recuerdo 1">
+
+          <p class="caption">
+             ✨
+          </p>
+
+        </div>
+
+
+        <!-- FOTO 2 -->
+
+        <div class="polaroid">
+
+          <img
+            src="imagenes/dos.jpeg"
+            alt="Recuerdo 2">
+
+          <p class="caption">
+             🎢
+          </p>
+
+        </div>
+
+
+        <!-- FOTO 3 -->
+
+        <div class="polaroid">
+
+          <img
+            src="imagenes/cinco.jpeg"
+            alt="Recuerdo 3">
+
+          <p class="caption">
+             🌅
+          </p>
+
+        </div>
+
+
+        <!-- FOTO 4 -->
+
+        <div class="polaroid">
+
+          <img
+            src="imagenes/cuatro.jpeg"
+            alt="Recuerdo 4">
+
+          <p class="caption">
+             🍕
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         3. LIBRO DE RECUERDOS
+         ===================================================== -->
+
+    <section class="section book-section">
+
+      <h2> DETALLITO +1</h2>
+
+
+      <div class="book-container">
+
+        <div class="book" id="book">
+
+
+          <!-- PORTADA -->
+
+          <div class="page cover" id="page1">
+
+            <h3>
+              Nuestros Momentos
+            </h3>
+
+            <p>
+              Toca para abrir 📖
+            </p>
+
+          </div>
+
+
+          <!-- SEGUNDA PÁGINA -->
+
+          <div class="page inner" id="page2">
+
+            <p>
+              "Te amo no solo por lo que eres,
+              sino por lo que soy cuando estoy contigo."
+            </p>
+
+            <button id="nextPage">
+              Siguiente Página ➡️
+            </button>
+
+          </div>
+
+
+          <!-- ÚLTIMA PÁGINA -->
+
+          <div class="page back" id="page3">
+
+            <h3>
+              Por muchos años más 🥂
+            </h3>
+
+            <p>
+              Siempre juntos.
+            </p>
+
+            <button id="prevPage">
+              ⬅️ Regresar
+            </button>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+       ===================================================== -->
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

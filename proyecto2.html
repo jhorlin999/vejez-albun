@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Our Memories</title>
+
+    <link
+        rel="stylesheet"
+        href="proyecto2.css"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+<body>
+
+    <!-- ==========================================
+         BOTÓN VOLVER AL INICIO
+    =========================================== -->
+
+    <a
+        href="index.html"
+        class="volver-inicio"
+    >
+        ⬅️ Inicio
+    </a>
+
+
+    <!-- ==========================================
+         CONTENEDOR PRINCIPAL
+    =========================================== -->
+
+    <main class="contenedor">
+
+        <section class="pagina pagina-recuerdos">
+
+            <div class="contenido-recuerdos">
+
+
+                <!-- ==========================================
+                     TARJETA DE CARTAS
+                =========================================== -->
+
+                <div class="tarjeta flores cartas-tarjeta">
+
+                    <h2>
+                        something special for you
+                    </h2>
+
+
+                    <div class="florero sobre-contenedor">
+
+
+                        <!-- CARTA 1 -->
+
+                        <div
+                            class="carta carta-1"
+                            data-titulo="I LOVE YOU"
+                            data-contenido="LA AMOO MI NIÑA PRECIOSA"
+                        >
+
+                            <div class="carta-preview">
+
+                                <span>
+                                    💌
+                                </span>
+
+                                <small>
+                                    MI VEJESH
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- CARTA 2 -->
+
+                        <div
+                            class="carta carta-2"
+                            data-titulo="I LOVE YOU"
+                            data-contenido=" Prometo seguir cuidando todos nuestros pequeños instantes juntos."
+                        >
+
+                            <div class="carta-preview">
+
+                                <span>
+                                    ✨
+                                </span>
+
+                                <small>
+                                    Promesa.
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- CARTA 3 -->
+
+                        <div
+                            class="carta carta-3"
+                            data-titulo="I LOVE YOU"
+                            data-contenido="Con la bendicion de nuestro papá Dios, seguiremos construyendo nuestro futuro juntos, lleno de amor y felicidad."
+                        >
+
+                            <div class="carta-preview">
+
+                                <span>
+                                    💖
+                                </span>
+
+                                <small>
+                                    Bendicion.
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- SOBRE -->
+
+                        <div class="sobre-base">
+
+                            <div class="sobre-solapa">
+                            </div>
+
+                            <div class="sello-cera">
+                                ❤️
+                            </div>
+
+                            <div class="florero-base">
+
+                                <span>
+                                    OPEN ME
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==========================================
+                     TARJETA DEL VIDEO
+                =========================================== -->
+
+                <div class="tarjeta musica">
+
+                    <h2>
+                       NADA QUE DECIR, SOLO DISFRUTAR EL MOMENTO, MI NIÑA PRECIOSA.
+                    </h2>
+
+
+                    <div class="reproductor">
+
+                        <div class="portada-cancion">
+
+                            <video
+                                id="vejez1"
+                                controls
+                                preload="metadata"
+                                playsinline
+                            >
+
+                                <source
+                                    src="videos/vejez1.mp4"
+                                    type="video/mp4"
+                                >
+
+                                Tu navegador no puede
+                                reproducir este video.
+
+                            </video>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==========================================
+         MODAL DE LAS CARTAS
+    =========================================== -->
+
+    <div
+        class="modal-carta"
+        id="modalCarta"
+    >
+
+        <div class="modal-contenido">
+
+            <span
+                class="cerrar-modal"
+                id="cerrarModal"
+            >
+                &times;
+            </span>
+
+            <h3 id="modalTitulo">
+                Título de Carta
+            </h3>
+
+            <p id="modalTexto">
+                Texto completo...
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         JAVASCRIPT
+    =========================================== -->
+
+    <script src="proyecto2.js"></script>
+
+</body>
+
+</html>
+```
