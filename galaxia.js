@@ -108,3 +108,21 @@ document.addEventListener("mousemove", (e) => {
     });
 
 });
+
+ /* =========================================
+       BOTÓN REGRESAR
+    ========================================= */
+
+    boton.addEventListener("click", () => {
+
+        // Animación de salida
+
+        carta.classList.add("salir");
+
+        setTimeout(() => {
+
+            window.history.back();
+
+        }, 600);
+
+    });

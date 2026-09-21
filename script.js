@@ -12,23 +12,7 @@ function actualizarContador() {
 
 actualizarContador();
 
-// 2. Control del Reproductor de Música
-const musicBtn = document.getElementById('musicToggle');
-const bgMusic = document.getElementById('bgMusic');
-let isPlaying = false;
-
-musicBtn.addEventListener('click', () => {
-  if (isPlaying) {
-    bgMusic.pause();
-    musicBtn.innerText = '🎵 Reproducir Canción';
-  } else {
-    bgMusic.play();
-    musicBtn.innerText = '⏸️ Pausar Canción';
-  }
-  isPlaying = !isPlaying;
-});
-
-// 3. Animación Simple del Libro 3D
+// 2. Animación Simple del Libro 3D
 const page1 = document.getElementById('page1');
 const nextPageBtn = document.getElementById('nextPage');
 const prevPageBtn = document.getElementById('prevPage');

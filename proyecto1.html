@@ -545,73 +545,10 @@
     </div>
 
 
+    <script src="musica.js"></script>
     <script>
 
         document.addEventListener('DOMContentLoaded', () => {
-
-            /* =====================================================
-               1. REPRODUCTOR DE MÚSICA
-            ===================================================== */
-
-            let isPlaying = false;
-
-            const btnMusica = document.getElementById('btnMusica');
-            const iconoMusica = document.getElementById('iconoMusica');
-            const textoMusica = document.getElementById('textoMusica');
-            const musicaFondo = document.getElementById('musicaFondo');
-
-            btnMusica.addEventListener('click', async () => {
-
-                if (!isPlaying) {
-
-                    try {
-
-                        await musicaFondo.play();
-
-                        isPlaying = true;
-
-                        textoMusica.textContent = 'Música: ON';
-                        iconoMusica.textContent = '🎶';
-
-                        btnMusica.classList.add(
-                            'ring-2',
-                            'ring-amber-300'
-                        );
-
-                    } catch (error) {
-
-                        console.error('No se pudo reproducir la música:', error);
-
-                        textoMusica.textContent = 'Error de música';
-                        iconoMusica.textContent = '⚠️';
-
-                        setTimeout(() => {
-
-                            textoMusica.textContent = 'Música: OFF';
-                            iconoMusica.textContent = '🎵';
-
-                        }, 2000);
-
-                    }
-
-                } else {
-
-                    musicaFondo.pause();
-
-                    isPlaying = false;
-
-                    textoMusica.textContent = 'Música: OFF';
-                    iconoMusica.textContent = '🎵';
-
-                    btnMusica.classList.remove(
-                        'ring-2',
-                        'ring-amber-300'
-                    );
-
-                }
-
-            });
-
 
             /* =====================================================
                2. CANVAS DE GALAXIA Y ESTRELLAS FUGACES
